@@ -59,6 +59,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- quick application restart and cache disabled start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- quick application restart and cache disabled end -->
         <!-- Swagger2 resfful api start -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -78,6 +85,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <dependencies>
+                    <!-- reload class definitions with changes in the method signatures start -->
+                    <dependency>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>springloaded</artifactId>
+                        <!--<version>1.2.0.RELEASE</version>-->
+                    </dependency>
+                    <!-- reload class definitions with changes in the method signatures end -->
+                </dependencies>
             </plugin>
         </plugins>
     </build>

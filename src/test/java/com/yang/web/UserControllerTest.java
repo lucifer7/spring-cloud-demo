@@ -1,4 +1,4 @@
-package com.yang.controller;
+package com.yang.web;
 
 import org.junit.Before;
 import org.junit.Test;

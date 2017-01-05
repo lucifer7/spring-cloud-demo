@@ -6,10 +6,11 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.bind.annotation.RestController;
 
 //@RefreshScope
-@SpringBootApplication      /* Alternation for @Configuration, @EnableAutoConfiguration, @ComponentScan */
+@SpringBootApplication      /* Alternation for @Configuration, @EnableAutoConfiguration, @ComponentScan with their defaults */
 /*@Configuration
 @EnableAutoConfiguration  *//* auto-configuration, designed to work well with Starters *//*
 @ComponentScan*/

@@ -25,7 +25,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.yang.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.yang.web"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -33,9 +33,9 @@ public class Swagger2 {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Generating RESTful APIs by Swagger2 in Spring Boot")
-                .description("Remember @SpringBootApplication required")
-                .termsOfServiceUrl("jingyi.yang@derbysoft.com")
-                .contact("Jinyi.yang")
+                .description("API for spring cloud config client service.")
+                //.termsOfServiceUrl("jingyi.yang@derbysoft.com")
+                .contact("jingyi.yang@derbysoft.com")
                 .version("0.1")
                 .build();
     }

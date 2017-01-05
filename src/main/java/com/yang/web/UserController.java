@@ -1,6 +1,6 @@
-package com.yang.controller;
+package com.yang.web;
 
-import com.yang.entity.User;
+import com.yang.domain.User;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 

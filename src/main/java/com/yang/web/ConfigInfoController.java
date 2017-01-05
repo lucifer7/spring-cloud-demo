@@ -1,4 +1,4 @@
-package com.yang.controller;
+package com.yang.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ public class ConfigInfoController {
 
     @RequestMapping("/name")
     public String home() {
-        return "Hello " + name;
+        return "2 Hello " + name;
     }
 
 }
