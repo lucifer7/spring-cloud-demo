@@ -1,6 +1,6 @@
 spring:
   application:
-    name: cloud-client
+    name: eureka-server
   cloud:
     config:
       profile: dev
@@ -8,8 +8,10 @@ spring:
       #username: User
       #password: 5761b363-5e82-45a7-be9d-2554abdc51fe
 server:
-  port: 8080
+  port: 1111
 eureka:
   client:
+    fetch-registry: false
+    register-with-eureka: false
     serverUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:${server.port}/eureka/
