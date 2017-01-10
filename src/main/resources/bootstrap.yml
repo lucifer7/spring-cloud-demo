@@ -9,7 +9,7 @@ spring:
       #password: 5761b363-5e82-45a7-be9d-2554abdc51fe
 server:
   port: 8080
-eureka:
-  client:
-    serverUrl:
-      defaultZone: http://localhost:8761/eureka/
+#eureka:
+#  client:
+#    serverUrl:
+#      defaultZone: http://10.2:1111/eureka/

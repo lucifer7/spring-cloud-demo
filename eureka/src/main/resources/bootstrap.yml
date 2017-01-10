@@ -8,10 +8,13 @@ spring:
       #username: User
       #password: 5761b363-5e82-45a7-be9d-2554abdc51fe
 server:
-  port: 1111
+  port: 8761
+
 eureka:
   client:
     fetch-registry: false
     register-with-eureka: false
-    serverUrl:
-      defaultZone: http://localhost:${server.port}/eureka/
+    healthcheck:
+      enabled: true
+    #serverUrl:
+     # defaultZone: http://localhost:${server.port}/eureka/
