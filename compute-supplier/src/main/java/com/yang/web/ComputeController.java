@@ -28,7 +28,8 @@ public class ComputeController {
     @RequestMapping(value = "/add")
     public Integer add(@RequestParam Integer a, @RequestParam Integer b) {
         ServiceInstance instance = client.getLocalServiceInstance();
-        System.out.println("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", result:" + (a + b));
+        System.out.println("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() +
+                ", param=" + a + ", " + b + ", result:" + (a + b));
         return a + b;
 
     }
