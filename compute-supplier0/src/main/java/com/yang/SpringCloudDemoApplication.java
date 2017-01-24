@@ -2,6 +2,7 @@ package com.yang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 //import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -17,6 +18,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient         /* in spring-cloud-netflix, for eureka only. And do not use this in @PostConstruct method or @Scheduled, it must by started earliest */
 public class SpringCloudDemoApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringCloudDemoApplication.class, args);
+        //SpringApplication.run(SpringCloudDemoApplication.class, args);
+        new SpringApplicationBuilder(SpringCloudDemoApplication.class).web(true).run(args);
     }
 }
