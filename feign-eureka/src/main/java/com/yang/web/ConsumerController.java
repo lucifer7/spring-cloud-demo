@@ -1,10 +1,10 @@
 package com.yang.web;
 
+import com.yang.service.ComputeClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * Usage: <b> </b>
@@ -14,12 +14,15 @@ import org.springframework.web.client.RestTemplate;
  **/
 @RestController
 public class ConsumerController {
+    private final ComputeClient computeClient;
+
     @Autowired
-    RestTemplate restTemplate;
+    public ConsumerController(ComputeClient computeClient) {
+        this.computeClient = computeClient;
+    }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add() {
-        return restTemplate.getForEntity("http://COMPUTE-SUPPLIER/add?a=32&b=10", String.class).getBody();
+    public Integer add() {
+        return  computeClient.add(12, 30);
     }
 }
-

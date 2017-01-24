@@ -7,8 +7,11 @@
     <artifactId>spring-cloud-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>compute-supplier</module>
+        <module>eureka</module>             <!-- Eureka server -->
+        <module>compute-supplier</module>   <!-- service provider -->
+        <module>compute-supplier0</module>  <!-- service provider replica -->
         <module>ribbon-eureka</module>
+        <module>feign-eureka</module>      <!-- load balanced consumer -->
     </modules>
     <packaging>pom</packaging>
 
@@ -67,6 +70,7 @@
         <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
         <!-- quick application restart and cache disabled start -->
+        <!-- MIND!! this cause Feign injection reported NullPointerException -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
