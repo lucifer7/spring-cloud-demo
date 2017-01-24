@@ -6,7 +6,10 @@
     <groupId>com.yang</groupId>
     <artifactId>spring-cloud-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>compute-supplier</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>spring-cloud-demo</name>
     <description>Demo project for Spring Boot</description>
@@ -46,19 +49,22 @@
             <version>${lombok.version}</version>
         </dependency>
         <!-- project common end -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
+        </dependency><dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
         <!-- quick application restart and cache disabled start -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -90,7 +96,7 @@
                     <dependency>
                         <groupId>org.springframework</groupId>
                         <artifactId>springloaded</artifactId>
-                        <!--<version>1.2.0.RELEASE</version>-->
+                        <version>1.2.0.RELEASE</version>
                     </dependency>
                     <!-- reload class definitions with changes in the method signatures end -->
                 </dependencies>

@@ -1,0 +1,12 @@
+# avoid incorrectly claiming info, heartbeat
+# without these, health check ins invalid
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
+    secure-port-enabled: true   # enable https
+    # instance-id: ${spring.application.name}
+#eureka:
+#  client:
+#    serverUrl:
+#      defaultZone: http://10.2:1111/eureka/
