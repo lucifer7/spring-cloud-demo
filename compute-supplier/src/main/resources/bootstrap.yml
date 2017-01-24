@@ -8,4 +8,4 @@ spring:
       #username: User
       #password: 5761b363-5e82-45a7-be9d-2554abdc51fe
 server:
-  port: 8088
+  port: 8088  # change port will be updated to running instance quickly

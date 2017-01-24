@@ -4,7 +4,7 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 5
-    secure-port-enabled: true   # enable https
+    secure-port-enabled: false   # enable https, caused certificateexception no subject alternative names present for LoadBalancing
     # instance-id: ${spring.application.name}
 #eureka:
 #  client:
