@@ -9,3 +9,12 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8763/eureka/,http://localhost:8762/eureka/
+
+zuul:
+  routes:
+    compute-supplier:
+      url: http://localhost:8080
+# ribbon is invalid
+#ribbon:
+#  eureka:
+#    enabled: false

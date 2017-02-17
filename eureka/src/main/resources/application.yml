@@ -1,15 +1,15 @@
 eureka:
-  #instance:
-  #  hostname: localhost
-  #  prefer-ip-address: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
   client:
     fetch-registry: true
-    register-with-eureka: false   # do not register itself as a client
+    register-with-eureka: false   # do not register itself as a client, even set to true, wont help peers snyc
     #healthcheck:
     #  enabled: true
     service-url:      # in many guidance, this property was serviceUrl, which will go wrong and pick for default 8761 server
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-      defaultZone: http://eureka-server-peer:8762/eureka/
+      defaultZone: http://localhost:8762/eureka/          # hostname won't work
   server:
    # 关闭Eureka自我保护机制, this mode cause Eureka to halt all de-registrations if drop below 85% threshold in 15 min
     enable-self-preservation: false  # turn off to avoid some warning, cause another warning

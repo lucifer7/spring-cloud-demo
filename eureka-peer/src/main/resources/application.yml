@@ -1,12 +1,12 @@
 eureka:
-  #instance:
-  #  hostname: localhost
-  #  prefer-ip-address: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
   client:
     fetch-registry: true
     register-with-eureka: false
     service-url:
-      defaultZone: http://eureka-server:8763/eureka/
+      defaultZone: http://localhost:8763/eureka/
   server:
    # 关闭Eureka自我保护机制, this mode cause Eureka to halt all de-registrations if drop below 85% threshold in 15 min
     enable-self-preservation: false  # turn off to avoid some warning, cause another warning

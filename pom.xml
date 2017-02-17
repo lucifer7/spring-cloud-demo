@@ -8,11 +8,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>eureka</module>             <!-- Eureka server -->
+        <module>eureka-peer</module>        <!-- Eureka server peer -->
         <module>compute-supplier</module>   <!-- service provider -->
         <module>compute-supplier0</module>  <!-- service provider replica -->
-        <module>ribbon-eureka</module>
+        <module>ribbon-eureka</module>      <!-- client side load balanced, with Hystrix as circuit breaker -->
         <module>feign-eureka</module>
-        <module>eureka-peer</module>      <!-- load balanced consumer -->
+        <module>zuul-gateway</module>       <!-- Declarative REST client  -->
     </modules>
     <packaging>pom</packaging>
 
@@ -23,7 +24,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.0.RELEASE</version>
-        <!--<version>1.4.3.RELEASE</version>--> <!-- test this version.serviceUrl -->
+        <!--<version>1.4.3.RELEASE</version>--> <!-- test this version.serviceUrl ? no -->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -41,6 +42,7 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>Camden.RELEASE</version>
+                <!--<version>Camden.BUILD-SNAPSHOT</version>-->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -98,15 +100,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <dependencies>
-                    <!-- reload class definitions with changes in the method signatures start -->
+                <!--<dependencies>
+                    &lt;!&ndash; reload class definitions with changes in the method signatures start &ndash;&gt;
                     <dependency>
                         <groupId>org.springframework</groupId>
                         <artifactId>springloaded</artifactId>
                         <version>1.2.0.RELEASE</version>
                     </dependency>
-                    <!-- reload class definitions with changes in the method signatures end -->
-                </dependencies>
+                    &lt;!&ndash; reload class definitions with changes in the method signatures end &ndash;&gt;
+                </dependencies>-->
             </plugin>
         </plugins>
     </build>
