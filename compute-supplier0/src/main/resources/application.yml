@@ -2,11 +2,11 @@
 # without these, health check ins invalid
 eureka:
   instance:
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 5
+    prefer-ip-address: true                       # 设置微服务调用地址为IP优先（缺省为false）
+    lease-renewal-interval-in-seconds: 5          # 心跳时间，即服务续约间隔时间（缺省为30s）
+    lease-expiration-duration-in-seconds: 5       # 发呆时间，即服务续约到期时间（缺省为90s）
     secure-port-enabled: false   # enable https
-    # instance-id: ${spring.application.name}
-#eureka:
-#  client:
-#    serverUrl:
-#      defaultZone: http://10.2:1111/eureka/
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
