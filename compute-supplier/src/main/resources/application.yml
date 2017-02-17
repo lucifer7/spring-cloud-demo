@@ -11,4 +11,4 @@ eureka:
     #healthcheck:
     #  enabled: true
     service-url:
-      defaultZone: http://localhost:8763/eureka/  # register to Eureka peers
+      defaultZone: http://localhost:8763/eureka/  # register to Eureka peers, does not support appName
