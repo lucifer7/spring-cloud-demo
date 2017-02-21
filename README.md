@@ -57,5 +57,31 @@ This client acts as Feign consumer
 Caution:
 spring-boot-devtools will cause Feign @Autowired NullPointerException, which will can be solved by adding @ImportAutoConfiguration(FeignAutoConfiguration.class) to main app of Feign consumer.
 
-### 5. Zuul Gateway
-Support reverse proxy and filter
+### 5. Zuul Gateway 微服务网关
+Support reverse proxy and filter.
+Containing Ribbon to support client RPC load balancing.
+And also a circuit breaker.
+
+#### 5.1 Mapping
+Map **service-id** to url, config in application.yml
+
+```
+zuul:
+  routes:
+    compute-supplier:
+      url: http://localhost:8080
+```
+
+OR:
+Register Zuul as a client of Eureka, then Zuul with automatically fetch services info from Eureka server.
+
+
+#### 5.2 Filter
+```
+4 standard filter types:
+Pre
+Routing
+Post
+Error
+```
+Create a sub class of ZuulFilter, implements methods, and register this bean into main application. Decouple API auth and business services, ensure the stateless of miscro services.
