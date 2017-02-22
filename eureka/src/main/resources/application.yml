@@ -1,3 +1,5 @@
+server:
+  port: 8763              # default port is 8761
 eureka:
   instance:
     hostname: localhost

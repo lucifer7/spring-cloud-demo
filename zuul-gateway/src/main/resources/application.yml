@@ -1,3 +1,5 @@
+server:
+  port: 80
 # Eureka server provides info of apps and nodes
 eureka:
   instance:

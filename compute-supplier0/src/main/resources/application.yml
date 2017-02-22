@@ -1,5 +1,7 @@
+server:
+  port: 8080
 # avoid incorrectly claiming info, heartbeat
-# without these, health check ins invalid
+# without these, health check is invalid
 eureka:
   instance:
     prefer-ip-address: true                       # 设置微服务调用地址为IP优先（缺省为false）
@@ -9,4 +11,4 @@ eureka:
     instance-id: ${spring.application.name}:${server.port}
   client:
     service-url:
-      defaultZone: http://localhost:8762/eureka/
+      defaultZone: http://localhost:8762/eureka/    # for HA, must config all peers

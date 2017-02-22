@@ -1,5 +1,3 @@
 spring:
   application:
     name: feign-eureka
-server:
-  port: 2222

@@ -1,5 +1,5 @@
-# avoid incorrectly claiming info, heartbeat
-# without these, health check ins invalid
+server:
+  port: 8088  # change port will be updated to running instance quickly
 eureka:
   instance:
     prefer-ip-address: true                       # 设置微服务调用地址为IP优先（缺省为false）

@@ -1,5 +1,5 @@
-# avoid incorrectly claiming info, heartbeat
-# without these, health check ins invalid
+server:
+  port: 1111
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 5
