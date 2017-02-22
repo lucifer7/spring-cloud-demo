@@ -2,12 +2,13 @@
 ## Categories
 
 ```
-<module>eureka</module>             <!-- Eureka server -->
+<module>eureka</module>             <!-- Service Discovery server -->
 <module>eureka-peer</module>        <!-- Eureka server peer -->
 <module>compute-supplier</module>   <!-- service provider -->
 <module>compute-supplier0</module>  <!-- service provider replica -->
-<module>ribbon-eureka</module>      <!-- client side load balanced, with Hystrix as circuit breaker -->
+<module>ribbon-eureka</module>      <!-- Client Side Load Balancing, with Hystrix as circuit breaker -->
 <module>feign-eureka</module>       <!-- Declarative REST client  -->
+<module>zuul-gateway</module>       <!-- Gateway/Intelligent Routing -->
 ```
 
 
@@ -62,6 +63,10 @@ Support reverse proxy and filter.
 Containing Ribbon to support client RPC load balancing.
 And also a circuit breaker.
 
+@EnableZuulProxy turn the Gateway app into a reverse proxy.
+
+[Zuul - Wiki](https://github.com/Netflix/zuul/wiki)
+
 #### 5.1 Mapping
 Map **service-id** to url, config in application.yml
 
@@ -77,6 +82,11 @@ Register Zuul as a client of Eureka, then Zuul with automatically fetch services
 
 
 #### 5.2 Filter
+Key features:
+- Type
+-  Execution Order
+-  Criteria - conditions required for Filter to be executed
+-  Action
 ```
 4 standard filter types:
 Pre
@@ -84,4 +94,6 @@ Routing
 Post
 Error
 ```
-Create a sub class of ZuulFilter, implements methods, and register this bean into main application. Decouple API auth and business services, ensure the stateless of miscro services.
+Filters share state through RequestContext.
+
+Create a sub class of ZuulFilter, implements methods, and register this bean into main application. Decouple API auth and business services, ensure the stateless of micro services.

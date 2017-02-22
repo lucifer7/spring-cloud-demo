@@ -7,13 +7,13 @@
     <artifactId>spring-cloud-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>eureka</module>             <!-- Eureka server -->
+        <module>eureka</module>             <!-- Service Discovery server -->
         <module>eureka-peer</module>        <!-- Eureka server peer -->
         <module>compute-supplier</module>   <!-- service provider -->
         <module>compute-supplier0</module>  <!-- service provider replica -->
-        <module>ribbon-eureka</module>      <!-- client side load balanced, with Hystrix as circuit breaker -->
-        <module>feign-eureka</module>
-        <module>zuul-gateway</module>       <!-- Declarative REST client  -->
+        <module>ribbon-eureka</module>      <!-- Client Side Load Balancing, with Hystrix as circuit breaker -->
+        <module>feign-eureka</module>       <!-- Declarative REST client  -->
+        <module>zuul-gateway</module>       <!-- Gateway/Intelligent Routing -->
     </modules>
     <packaging>pom</packaging>
 
