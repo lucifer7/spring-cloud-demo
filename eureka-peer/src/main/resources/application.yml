@@ -14,3 +14,9 @@ eureka:
     enable-self-preservation: false  # turn off to avoid some warning, cause another warning
     wait-time-in-ms-when-sync-empty: 0 # default, speedup startup
     eviction-interval-timer-in-ms: 1000   # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+
+---
+spring:
+  profiles: product
+server:
+  port: 8761

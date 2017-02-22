@@ -11,7 +11,6 @@
 <module>zuul-gateway</module>       <!-- Gateway/Intelligent Routing -->
 ```
 
-
 ## Modules
 ### 1. Eureka server
 Service discovery, part of Netflix OSS.
@@ -97,3 +96,7 @@ Error
 Filters share state through RequestContext.
 
 Create a sub class of ZuulFilter, implements methods, and register this bean into main application. Decouple API auth and business services, ensure the stateless of micro services.
+
+## Note
+1. Do NOT use default package, recommended com.example.module. Locate main application class in root package.
+2. 

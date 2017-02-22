@@ -10,5 +10,5 @@ eureka:
   client:
     #healthcheck:
     #  enabled: true
-    service-url:
+    service-url:        # case,-,_,camel are all OK, - recommended, some don't support related binding, like defaultZone, may related to detailed implementation of extended properties
       defaultZone: http://localhost:8763/eureka/  # register to Eureka peers, does not support appName
