@@ -15,6 +15,7 @@
         <module>feign-eureka</module>       <!-- Declarative REST client  -->
         <module>zuul-gateway</module>       <!-- Gateway/Intelligent Routing -->
     </modules>
+
     <packaging>pom</packaging>
 
     <name>spring-cloud-demo</name>
@@ -57,10 +58,10 @@
             <version>${lombok.version}</version>
         </dependency>
         <!-- project common end -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
@@ -100,6 +101,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--<configuration>
+                    <executable>true</executable>
+                </configuration>-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <!--<dependencies>
                     &lt;!&ndash; reload class definitions with changes in the method signatures start &ndash;&gt;
                     <dependency>

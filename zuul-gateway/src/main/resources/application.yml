@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 0     # random port, but eureka can't register real port
 # Eureka server provides info of apps and nodes
 eureka:
   instance:

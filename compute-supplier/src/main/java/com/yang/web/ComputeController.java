@@ -2,6 +2,7 @@ package com.yang.web;
 
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 //@Log4j
 public class ComputeController {
+    @Value("${message.state}")
+    private String state;
     @Autowired
     private DiscoveryClient client;
 
@@ -31,6 +34,10 @@ public class ComputeController {
         System.out.println("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() +
                 ", param=" + a + ", " + b + ", result:" + (a + b));
         return a + b;
+    }
 
+    @RequestMapping(value = "/state")
+    public String state() {
+        return state;
     }
 }
