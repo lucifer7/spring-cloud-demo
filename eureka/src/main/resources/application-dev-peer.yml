@@ -1,0 +1,5 @@
+spring:
+  profiles: dev-peer
+  cloud:
+    config:
+      profile: dev-peer
