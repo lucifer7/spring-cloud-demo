@@ -14,6 +14,7 @@
         <module>ribbon-eureka</module>      <!-- Client Side Load Balancing, with Hystrix as circuit breaker -->
         <module>feign-eureka</module>       <!-- Declarative REST client  -->
         <module>zuul-gateway</module>       <!-- Gateway/Intelligent Routing -->
+        <!--<module>sleuth-log</module>-->
     </modules>
 
     <packaging>pom</packaging>
@@ -70,10 +71,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency><dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <!-- quick application restart and cache disabled start -->
         <!-- MIND!! this cause Feign injection reported NullPointerException -->
         <dependency>
