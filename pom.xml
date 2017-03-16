@@ -14,7 +14,7 @@
         <module>ribbon-eureka</module>      <!-- Client Side Load Balancing, with Hystrix as circuit breaker -->
         <module>feign-eureka</module>       <!-- Declarative REST client  -->
         <module>zuul-gateway</module>       <!-- Gateway/Intelligent Routing -->
-        <!--<module>sleuth-log</module>-->
+        <module>sleuth-log</module>         <!-- Log tracer -->
     </modules>
 
     <packaging>pom</packaging>

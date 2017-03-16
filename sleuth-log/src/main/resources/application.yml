@@ -1,11 +1,11 @@
 server:
   port: 8081
 spring:
-  sleuth:
-    log:
+  #sleuth:
+  #  log:
       #json:
       #  enabled: true
-      slf4j:
-        enabled: true
+      #slf4j:
+      #  enabled: true    # version 1.5 ?
   application:
     name: sleuth-log

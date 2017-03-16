@@ -97,6 +97,10 @@ Filters share state through RequestContext.
 
 Create a sub class of ZuulFilter, implements methods, and register this bean into main application. Decouple API auth and business services, ensure the stateless of micro services.
 
+### 6. Sleuth
+Distributed tracing solution for Spring Cloud, support slf4j and the like.
+Will print span and trace id in log.
+
 ## Note
 1. Do NOT use default package, recommended com.example.module. Locate main application class in root package.
 2. 
