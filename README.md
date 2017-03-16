@@ -9,6 +9,9 @@
 <module>ribbon-eureka</module>      <!-- Client Side Load Balancing, with Hystrix as circuit breaker -->
 <module>feign-eureka</module>       <!-- Declarative REST client  -->
 <module>zuul-gateway</module>       <!-- Gateway/Intelligent Routing -->
+<module>sleuth-log</module>         <!-- Log tracer -->
+<module>sleuth-zipkin</module>      <!-- Tracing and export logs to zipkin server -->
+<module>zipkin-server</module>      <!-- Zipkin Server with UI, require rabbitMq -->
 ```
 
 ## Modules
@@ -97,9 +100,11 @@ Filters share state through RequestContext.
 
 Create a sub class of ZuulFilter, implements methods, and register this bean into main application. Decouple API auth and business services, ensure the stateless of micro services.
 
-### 6. Sleuth
-Distributed tracing solution for Spring Cloud, support slf4j and the like.
+### 6. Cloud Tracing: Sleuth and Zipkin
+Sleuth: Distributed tracing solution for Spring Cloud, support slf4j and the like.
 Will print span and trace id in log.
+
+Zipkin: client and server(stream?) and ui, requirs rabbitmq.
 
 ## Note
 1. Do NOT use default package, recommended com.example.module. Locate main application class in root package.
