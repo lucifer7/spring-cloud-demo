@@ -10,8 +10,6 @@
 
     <artifactId>sleuth-zipkin</artifactId>
 
-    <modelVersion>4.0.0</modelVersion>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -26,16 +24,16 @@
 
     <dependencies>
         <!-- Sleuth Tracing log start -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
-        <!-- Sleuth Tracing log end -->
-        <!-- Zipkin client start -->
+        &lt;!&ndash; Sleuth Tracing log end &ndash;&gt;
+        &lt;!&ndash; Zipkin client start &ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
+        </dependency>-->
         <!-- Zipkin client end -->
     </dependencies>
 

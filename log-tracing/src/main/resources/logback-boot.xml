@@ -1,0 +1,44 @@
+<configuration scan="true">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [@project.name@,%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="PERF_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/usr/local/logs/@project.name@.perf.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/usr/local/logs/@project.name@.perf.%d{yyyy-MM-dd}.%i.log.zip
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>512000KB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSS,GMT} %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="PERF_KAFKA" class="com.derby.nuke.common.module.kafka.appender.logback.KafkaLogbackAppender">
+        <applicationName>@project.name@</applicationName>
+        <host>@project.name@</host>
+        <type>perf</type>
+        <topicName>click_log_tracing_test</topicName>
+        <kafkaServerId>KFK_PERF</kafkaServerId>
+    </appender>
+
+    <logger name="PERF_LOGGER" level="INFO" additivity="false">
+        <appender-ref ref="PERF_FILE"/>
+        <appender-ref ref="PERF_KAFKA"/>
+    </logger>
+
+    <!-- logback为java中的包 -->
+    <logger name="logback"/>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <logger name="com.derby.nuke.common.module.kafka.appender" level="DEBUG"/>
+</configuration>

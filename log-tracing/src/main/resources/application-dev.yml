@@ -1,0 +1,25 @@
+debug: true
+
+# start port
+server:
+  port: 80
+
+# eureka server urls
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://10.200.157.6:8762/eureka/,http://10.200.157.6:8763/eureka/
+
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 60000
+
+# S3 server bucket
+s3:
+  bucket-name: msm-bucket

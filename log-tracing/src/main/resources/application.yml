@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: @project.name@
+  profiles:
+    active: @activatedProperties@
+
+  zipkin:
+    base-url: http://10.200.159.84:9411/
+
+
+server:
+  context-path: /@project.name@
+
+# Circuit breaker
+hystrix:
+  threadpool:
+    default:
+      coreSize: 20   # more threads, cause uploading files may take long time
+      maxQueueSize: 5000
+      keepAliveTimeMinutes: 2
+      queueSizeRejectionThreshold: 5000
+      allowMaximumSizeToDivergeFromCoreSize: true
+  command:
+    default:
+      # fallback.isolation.semaphore.maxConcurrentRequests: 20  # when using semaphore
+      execution:
+        timeout:
+          enabled: true   # default
+        isolation:
+          strategy: THREAD    # or semaphore
+          thread:
+            timeoutInMilliseconds: 30000
+
+# logback file
+logging:
+  config: classpath:logback-boot.xml

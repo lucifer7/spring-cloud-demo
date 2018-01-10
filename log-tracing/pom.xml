@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-demo</artifactId>
+        <groupId>com.yang</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.derbysoft</groupId>
+    <artifactId>log-tracing</artifactId>
+    <name>log-tracing</name>
+
+    <properties>
+        <feign-form.version>2.2.1</feign-form.version>
+        <fastjson.version>1.2.28</fastjson.version>
+        <logstash.version>4.11</logstash.version>
+        <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <activatedProperties>dev</activatedProperties>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.openfeign.form</groupId>
+            <artifactId>feign-form</artifactId>
+            <version>${feign-form.version}</version>
+        </dependency>
+        <!-- Json -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!-- Sleuth + Zipkin start -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+        <!-- Sleuth + Zipkin end -->
+        <!-- Kafka start -->
+        <dependency>
+            <groupId>com.derby.nuke</groupId>
+            <artifactId>nuke-logback-kafka-appender</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <!-- Kafka end -->
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <!-- Add derbysoft repositories -->
+    <repositories>
+        <repository>
+            <id>derbysoft1</id>
+            <url>http://maven.derbysoft.tm/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>derbysoft2</id>
+            <url>http://maven.derbysoft.tm/artifactory/libs-release-local</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>derbysoft-repo1-cache</id>
+            <url>http://maven.derbysoft.tm/artifactory/repo1</url>
+        </repository>
+    </repositories>
+</project>

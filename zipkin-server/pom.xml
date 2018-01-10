@@ -10,8 +10,6 @@
 
     <artifactId>zipkin-server</artifactId>
 
-    <modelVersion>4.0.0</modelVersion>
-
     <dependencies>
         <!-- Zipkin server stream start -->
         <dependency>
@@ -30,6 +28,19 @@
             <scope>runtime</scope>
         </dependency>
         <!-- Zipkin ui end -->
+        <!-- Zipkin ES storage start -->
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin</artifactId>
+            <version>1.28.1</version>
+        </dependency>
+        <!-- add the dependency for elasticsearch via http -->
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-autoconfigure-storage-elasticsearch-http</artifactId>
+            <version>1.28.1</version>
+        </dependency>
+        <!-- Zipkin ES storage end -->
     </dependencies>
 
 </project>
