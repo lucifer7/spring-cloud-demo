@@ -54,13 +54,6 @@
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
         <!-- Sleuth + Zipkin end -->
-        <!-- Kafka start -->
-        <dependency>
-            <groupId>com.derby.nuke</groupId>
-            <artifactId>nuke-logback-kafka-appender</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-        <!-- Kafka end -->
     </dependencies>
 
     <build>
@@ -71,26 +64,4 @@
             </resource>
         </resources>
     </build>
-
-    <!-- Add derbysoft repositories -->
-    <repositories>
-        <repository>
-            <id>derbysoft1</id>
-            <url>http://maven.derbysoft.tm/maven2</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>derbysoft2</id>
-            <url>http://maven.derbysoft.tm/artifactory/libs-release-local</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>derbysoft-repo1-cache</id>
-            <url>http://maven.derbysoft.tm/artifactory/repo1</url>
-        </repository>
-    </repositories>
 </project>
