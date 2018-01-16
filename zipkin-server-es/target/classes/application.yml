@@ -1,0 +1,24 @@
+server:
+  port: 9411
+spring:
+  application:
+    name: zipkin-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.200.157.6:8762/eureka/,http://10.200.157.6:8763/eureka/
+
+zipkin:
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      cluster: 916815587139:click-test-es
+      hosts: http://search-click-test-es-m6u6mo27fr7cqno2tdf5sgpx3m.us-west-2.es.amazonaws.com:80
+      # Seems index prefix?
+      index: tracer_log
+      index-shards: 5       # Default
+      index-replicas: 1     # Default
+      # aws:
+      #   domain:
+      #   region:

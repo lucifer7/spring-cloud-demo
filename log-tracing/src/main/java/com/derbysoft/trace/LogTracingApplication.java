@@ -52,7 +52,7 @@ public class LogTracingApplication extends SpringBootServletInitializer {
 
     @RequestMapping("/")
     public String home() {
-        log.info("Visit home page.");
+        log.info("<Visit home page>");
         return "Hello, zipkin.";
     }
 }

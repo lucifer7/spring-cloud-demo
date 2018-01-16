@@ -18,6 +18,7 @@
         <fastjson.version>1.2.28</fastjson.version>
         <logstash.version>4.11</logstash.version>
         <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
+        <nuke.version>1.2.0-SNAPSHOT</nuke.version>
     </properties>
 
     <profiles>
@@ -54,6 +55,18 @@
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
         <!-- Sleuth + Zipkin end -->
+        <!-- Kafka start -->
+        <dependency>
+            <groupId>com.derby.nuke</groupId>
+            <artifactId>nuke-logback-kafka-appender</artifactId>
+            <version>${nuke.version}</version>
+        </dependency>
+        <!-- Kafka end -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -64,4 +77,30 @@
             </resource>
         </resources>
     </build>
+
+    <!-- Add derbysoft repositories -->
+    <repositories>
+        <repository>
+            <id>derbysoft1</id>
+            <url>http://maven.derbysoft.tm/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>derbysoft2</id>
+            <url>http://maven.derbysoft.tm/artifactory/libs-release-local</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>derbysoft-repo1-cache</id>
+            <url>http://maven.derbysoft.tm/artifactory/repo1</url>
+        </repository>
+        <repository>
+            <id>db-snapshot</id>
+            <url>http://warrior.derbysoft.com:8030/artifactory/libs-snapshot-local/</url>
+        </repository>
+    </repositories>
 </project>

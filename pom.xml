@@ -16,7 +16,7 @@
         <module>zuul-gateway</module>       <!-- Gateway/Intelligent Routing -->
         <module>sleuth-log</module>         <!-- Log tracer -->
         <module>sleuth-zipkin</module>      <!-- Tracing and export logs to zipkin server -->
-        <module>zipkin-server</module>      <!-- Zipkin Server with UI, require rabbitMq -->
+        <module>zipkin-server-es</module>   <!-- Zipkin Server and UI, elasticsearch as back storage -->
         <module>log-tracing</module>        <!-- Integration log, Kafka, ES, Tracing system -->
     </modules>
 

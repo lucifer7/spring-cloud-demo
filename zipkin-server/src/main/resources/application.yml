@@ -1,8 +1,0 @@
-server:
-  port: 9411
-spring:
-  application:
-    name: zipkin-server
-  rabbitmq:
-    host: 10.200.157.50
-    port: 5672
