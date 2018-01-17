@@ -102,11 +102,14 @@ Filters share state through RequestContext.
 Create a sub class of ZuulFilter, implements methods, and register this bean into main application. Decouple API auth and business services, ensure the stateless of micro services.
 
 ### 6. Cloud Tracing: Sleuth and Zipkin
-Sleuth: Distributed tracing solution for Spring Cloud, support slf4j and the like.
-Will print span and trace id in log.
+Sleuth: Distributed tracing solution for Spring Cloud, support slf4j and the like. Trace request from MQ, HTTP, Gateway, RestTemplate, etc.
+Will print span and trace id in log(To console/file, or send to collector in json format).
 
-Zipkin: client and server(stream?) and ui, requirs rabbitmq.
+Zipkin: client, server, and ui. May accept messages from HTTP(REST API) or Stream(RabbitMQ or Kafka). Also it support Spring Boot(@EnableZipkinServer and @EnableZipkinStreamServer).    
+Storage of Zipkin support in-memory, MySQL, Elasticsearch, etc.    
+Zipkin servers don't share states or config, so they run as cluster. (I guess they just run in parallel. How clients reach to every nodes of cluster?)
 
 ## Note
 1. Do NOT use default package, recommended com.example.module. Locate main application class in root package.
-2. 
+2. The cloud may require other supporting server, like MQ, storage.
+3. For simplicity, many modules are run in singleton, in product env may need to run as cluster.
