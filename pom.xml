@@ -99,18 +99,6 @@
             <version>${swagger.version}</version>
         </dependency>
         <!-- Swagger2 resfful api end -->
-        <!-- Sleuth Tracing log start -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-        <!-- Sleuth Tracing log end -->
-        <!-- Zipkin client start -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
-        <!-- Zipkin client end -->
     </dependencies>
 
     <build>

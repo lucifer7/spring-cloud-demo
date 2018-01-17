@@ -3,6 +3,19 @@ server:
 spring:
   application:
     name: zipkin-server
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: sleuth
+          binder: kafka
+          group: zipkin_server
+      kafka:
+        binder:
+          brokers: 10.200.159.84:9092
+          zk-nodes: 10.200.159.84:2181
+          auto-add-partitions: false
+          auto-create-topics: false
 
 eureka:
   client:

@@ -10,31 +10,29 @@
 
     <artifactId>sleuth-zipkin</artifactId>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Camden.SR6</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <!-- Sleuth Tracing log start -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
-        &lt;!&ndash; Sleuth Tracing log end &ndash;&gt;
-        &lt;!&ndash; Zipkin client start &ndash;&gt;
+        <!-- Sleuth Tracing log end -->
+        <!-- Stream start -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <artifactId>spring-cloud-sleuth-stream</artifactId>
+            <!--<artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+            <!--<artifactId>spring-cloud-stream-binder-kafka</artifactId>-->
+        </dependency>
+        <!--<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream</artifactId>
         </dependency>-->
-        <!-- Zipkin client end -->
+        <!-- Stream end -->
     </dependencies>
 
 </project>

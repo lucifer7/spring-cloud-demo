@@ -12,7 +12,7 @@
 <module>sleuth-log</module>         <!-- Log tracer -->
 <module>sleuth-zipkin</module>      <!-- Tracing and export logs to zipkin server -->
 <module>zipkin-server-es</module>   <!-- Zipkin Server and UI, elasticsearch as back storage -->
-<module>log-tracing</module>        <!-- Integration log, Kafka, ES, Tracing system -->
+<module>log-tracing</module>        <!-- Export log to Kafka, Deprecated -->
 ```
 
 ## Modules

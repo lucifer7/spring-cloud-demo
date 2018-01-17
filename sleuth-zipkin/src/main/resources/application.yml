@@ -3,6 +3,39 @@ server:
 spring:
   application:
     name: sleuth-zipkin         # service name to be shown on zipkin
-  zipkin:
-    base-url: http://localhost:9411/
-    enabled: true
+  sleuth:
+  # Use Stream to export log
+    stream:
+      enabled: true
+  # zipkin:
+  #   base-url: http://localhost:9411/
+  #   enabled: true
+  cloud:
+    stream:
+      bindings:
+        output:
+        # Topic of kafka
+          destination: sleuth
+          binder: kafka
+      kafka:
+        binder:
+          brokers: 10.200.159.84:9092
+          zk-nodes: 10.200.159.84:2181
+          auto-add-partitions: false
+          auto-create-topics: false
+          # Define message format if necessary
+#         headers:
+#           - X-B3-TraceId
+#           - X-B3-SpanId
+#           - X-B3-Sampled
+#           - X-B3-ParentSpanId
+#           - X-Span-Name
+#           - X-Span-Export
+#           - X-Process-Id
+#           - spanId
+#           - spanSampled
+#           - spanProcessId
+#           - spanParentSpanId
+#           - spanTraceId
+#           - spanName
+#           - messageSent

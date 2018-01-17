@@ -33,6 +33,19 @@
             <version>${zipkin.version}</version>
         </dependency>
 
+        <!-- Zipking stream start -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+        </dependency>
+        <!-- Zipking stream end -->
+
+        <!-- Zipkin ES storage start -->
+        <!-- ES.version > 6.x, use HTTP client, required okhttp3 -->
         <dependency>
             <groupId>io.zipkin.java</groupId>
             <artifactId>zipkin-autoconfigure-storage-elasticsearch-http</artifactId>
@@ -55,6 +68,7 @@
             <artifactId>okhttp</artifactId>
             <version>${okhttp.version}</version>
         </dependency>
+        <!-- Zipkin ES storage end -->
     </dependencies>
 
 </project>

@@ -5,14 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
-import org.springframework.cloud.sleuth.zipkin.ZipkinSpanReporter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import zipkin.Span;
 
 @SpringBootApplication
 @Slf4j
@@ -22,7 +19,7 @@ public class SleuthZipkinApplication {
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
-
+/*
     @Bean
     @ConditionalOnProperty(value = "sample.zipkin.enabled", havingValue = "false")
     public ZipkinSpanReporter spanCollector() {
@@ -32,7 +29,7 @@ public class SleuthZipkinApplication {
                 log.info("Reporting span [{}].", span);
             }
         };
-    }
+    }*/
 
     /* How often we want to sample log and export to zipkin: always */
     @Bean
