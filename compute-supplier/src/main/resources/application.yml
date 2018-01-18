@@ -1,0 +1,29 @@
+# Remove this if using Config Repo
+server:
+  port: 8088
+
+message:
+  state: Remove this if using Config Repo
+
+sping:
+  application:
+    name: compute-supplier
+  sleuth:
+    # Use Stream to export log
+    stream:
+      enabled: true
+  cloud:
+    stream:
+      bindings:
+        # Name of channel
+        output:
+          # Target destination of a channel, e.g. Topic of kafka
+          destination: sleuth
+          binder: kafka
+      # Configuration name of each binder, here use kafka as default
+      kafka:
+        binder:
+          brokers: 10.200.159.84:9092
+          zk-nodes: 10.200.159.84:2181
+          auto-add-partitions: false
+          auto-create-topics: false

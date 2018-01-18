@@ -6,10 +6,14 @@ spring:
   cloud:
     stream:
       bindings:
+        # Name of channel
         input:
+          # Target destination of a channel, e.g. Topic of kafka
           destination: sleuth
           binder: kafka
+          # Consumer group, if null, will be anonymous consumer
           group: zipkin_server
+      # Configuration name of each binder, here use kafka as default
       kafka:
         binder:
           brokers: 10.200.159.84:9092
@@ -26,8 +30,8 @@ zipkin:
   storage:
     type: elasticsearch
     elasticsearch:
-      cluster: 916815587139:click-test-es
-      hosts: http://search-click-test-es-m6u6mo27fr7cqno2tdf5sgpx3m.us-west-2.es.amazonaws.com:80
+      cluster: log-es
+      hosts: http://host:port
       # Seems index prefix?
       index: tracer_log
       # Default setting of index, mind do not comment in the same line of property

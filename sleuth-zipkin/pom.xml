@@ -26,13 +26,17 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-kafka</artifactId>
-            <!--<artifactId>spring-cloud-stream-binder-kafka</artifactId>-->
+            <!--<artifactId>spring-cloud-stream-binder-kafka</artifactId>-->    <!-- Alternative -->
         </dependency>
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream</artifactId>
         </dependency>-->
         <!-- Stream end -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
