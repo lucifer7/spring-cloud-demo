@@ -26,8 +26,8 @@ zipkin:
   storage:
     type: elasticsearch
     elasticsearch:
-      cluster: log-es
-      hosts: http://host:port
+      cluster: 916815587139:click-test-es
+      hosts: http://search-click-test-es-m6u6mo27fr7cqno2tdf5sgpx3m.us-west-2.es.amazonaws.com:80
       # Seems index prefix?
       index: tracer_log
       # Default setting of index, mind do not comment in the same line of property

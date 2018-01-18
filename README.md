@@ -109,7 +109,12 @@ Zipkin: client, server, and ui. May accept messages from HTTP(REST API) or Strea
 Storage of Zipkin support in-memory, MySQL, Elasticsearch, etc.    
 Zipkin servers don't share states or config, so they run as cluster. (I guess they just run in parallel. How clients reach to every nodes of cluster?)
 
+### 7. Spring Cloud Stream
+Allow apps to communicate by input and output _channels_.  
+Provide Binder for Rabbit MQ and Kafka.
+Where do channels connect? Properties define _destination_(Kafka topic or RabbitMQ exchange)
+
 ## Note
 1. Do NOT use default package, recommended com.example.module. Locate main application class in root package.
-2. The cloud may require other supporting server, like MQ, storage.
+2. The cloud may require other supporting server, like stream, storage.
 3. For simplicity, many modules are run in singleton, in product env may need to run as cluster.
