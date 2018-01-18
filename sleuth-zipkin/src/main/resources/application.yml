@@ -4,7 +4,7 @@ spring:
   application:
     name: sleuth-zipkin         # service name to be shown on zipkin
   sleuth:
-  # Use Stream to export log
+    # Use Stream to export log
     stream:
       enabled: true
   # zipkin:
@@ -13,10 +13,12 @@ spring:
   cloud:
     stream:
       bindings:
+        # Name of channel
         output:
-        # Topic of kafka
+          # Target destination of a channel, e.g. Topic of kafka
           destination: sleuth
           binder: kafka
+      # Configuration name of each binder, here use kafka as default
       kafka:
         binder:
           brokers: 10.200.159.84:9092

@@ -17,7 +17,7 @@
 
 ## Modules
 ### 1. Eureka server
-Service discovery, part of Netflix OSS.
+Service discovery, part of Netflix OSS.   
 Serves as server side, while rest serve as Eureka client. 
 
 #### Peer Awareness
@@ -34,13 +34,14 @@ Config both peers to register each other:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       defaultZone: http://eureka-server:8761/eureka/
 ```
-While euraka-clients are only register to one of the server, both peers can sync registration info. You can have multiple peers to a system, as long as they are connected to each other by at least one edge, they will synchronize the registrations amongst themselves.
-
+While euraka-clients are only register to one of the server, both peers can sync registration info. You can have multiple peers to a system, as long as they are connected to each other by at least one edge, they will synchronize the registrations amongst themselves.    
 Run the same server on two hosts, running it in different Spring profiles.
 
 #### HA
-Client may config multi servers or only one, peer wil sync automatically. If only one server configured, client loses registration once this server is down.
+Client may config multi servers or only one, peer wil sync automatically.   
+If only one server configured, client loses registration once this server is down.   
 If the first shutdown, then register second.
+
 > defaultZone: http://localhost:8763/eureka/,http://localhost:8762/eureka/
 
 > Log: Request execution succeeded on retry #2
@@ -49,22 +50,25 @@ If the first shutdown, then register second.
 Service provide, with its replica compute-supplier0.
  
 ### 3. Ribbon Eureka
-A client side IPC(Inter Process Communication)[RPC?] library. Providing: load balancing, fault tolerance, multiple protocol(HTTP, TCP, UDP) support in an asynchronous and reactive model, caching and batching.
-This client will act as consumer to call Compute supplier for service.
+A client side IPC(Inter Process Communication)[RPC?] library.    
+Providing: load balancing, fault tolerance, multiple protocol(HTTP, TCP, UDP) support in an asynchronous and reactive model, caching and batching.
+This client will act as consumer to call Compute supplier for service.    
 
 ### 4. Feign Eureka
-A java to http client binder inspired by Retrofit, JAXR-2.0.
-Declarative(?) 
-Making writing Web Service client easier.
-This client acts as Feign consumer
+Declarative REST client   
+A java to http client binder inspired by Retrofit, JAXR-2.0.    
+Making writing Web Service client easier.    
+This client acts as Feign consumer    
+Already contains Ribbon    
 
-Caution:
+**Caution:**    
 spring-boot-devtools will cause Feign @Autowired NullPointerException, which will can be solved by adding @ImportAutoConfiguration(FeignAutoConfiguration.class) to main app of Feign consumer.
 
-### 5. Zuul Gateway 微服务网关
-Support reverse proxy and filter.
-Containing Ribbon to support client RPC load balancing.
-And also a circuit breaker.
+### 5. Zuul
+Router and Filter, Gateway    
+Support reverse proxy and filter.    
+Containing Ribbon to support client RPC load balancing.    
+And also a circuit breaker.    
 
 @EnableZuulProxy turn the Gateway app into a reverse proxy.
 
@@ -80,7 +84,7 @@ zuul:
       url: http://localhost:8080
 ```
 
-OR:
+**OR:**    
 Register Zuul as a client of Eureka, then Zuul with automatically fetch services info from Eureka server.
 
 
@@ -102,17 +106,22 @@ Filters share state through RequestContext.
 Create a sub class of ZuulFilter, implements methods, and register this bean into main application. Decouple API auth and business services, ensure the stateless of micro services.
 
 ### 6. Cloud Tracing: Sleuth and Zipkin
-Sleuth: Distributed tracing solution for Spring Cloud, support slf4j and the like. Trace request from MQ, HTTP, Gateway, RestTemplate, etc.
-Will print span and trace id in log(To console/file, or send to collector in json format).
+**Sleuth:**    
+Distributed tracing solution for Spring Cloud, support slf4j and the like. Trace request from MQ, HTTP, Gateway, RestTemplate, etc.   
+Will print span and trace id in log(To console/file, or send to collector in json format).   
 
-Zipkin: client, server, and ui. May accept messages from HTTP(REST API) or Stream(RabbitMQ or Kafka). Also it support Spring Boot(@EnableZipkinServer and @EnableZipkinStreamServer).    
+**Zipkin:**    
+client, server, and ui. May accept messages from HTTP(REST API) or Stream(RabbitMQ or Kafka). Also it support Spring Boot(@EnableZipkinServer and @EnableZipkinStreamServer).    
 Storage of Zipkin support in-memory, MySQL, Elasticsearch, etc.    
 Zipkin servers don't share states or config, so they run as cluster. (I guess they just run in parallel. How clients reach to every nodes of cluster?)
 
 ### 7. Spring Cloud Stream
-Allow apps to communicate by input and output _channels_.  
-Provide Binder for Rabbit MQ and Kafka.
-Where do channels connect? Properties define _destination_(Kafka topic or RabbitMQ exchange)
+Allow apps to communicate by input and output _channels_.    
+Provide Binder for Rabbit MQ and Kafka.    
+Where do channels connect? Properties define _destination_(Kafka topic or RabbitMQ exchange)    
+
+**Consumer group**    
+Inspired by Kafka. All groups which subscribe to a given destination receive a copy of published data, but only one member of each receives a given message.
 
 ## Note
 1. Do NOT use default package, recommended com.example.module. Locate main application class in root package.

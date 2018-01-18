@@ -1,12 +1,12 @@
-spring:
-  application:
-    name: compute-supplier
-  profiles:
-    active: dev
-  cloud:
-    config:
-      profile: dev
-      uri: http://localhost:8888
-      fail-fast: true
+#spring:
+#  application:
+#    name: compute-supplier
+#  profiles:
+#    active: dev
+#  cloud:
+#    config:
+#      profile: dev
+#      uri: http://localhost:8888
+#      fail-fast: true
       #username: User
       #password: 5761b363-5e82-45a7-be9d-2554abdc51fe

@@ -6,10 +6,14 @@ spring:
   cloud:
     stream:
       bindings:
+        # Name of channel
         input:
+          # Target destination of a channel, e.g. Topic of kafka
           destination: sleuth
           binder: kafka
+          # Consumer group, if null, will be anonymous consumer
           group: zipkin_server
+      # Configuration name of each binder, here use kafka as default
       kafka:
         binder:
           brokers: 10.200.159.84:9092
