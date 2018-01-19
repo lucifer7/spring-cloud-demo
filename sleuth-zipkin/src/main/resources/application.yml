@@ -1,5 +1,11 @@
 server:
   port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.200.157.6:8762/eureka/,http://10.200.157.6:8763/eureka/
+
 spring:
   application:
     name: sleuth-zipkin         # service name to be shown on zipkin

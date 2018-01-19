@@ -5,7 +5,12 @@ server:
 message:
   state: Remove this if using Config Repo
 
-sping:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.200.157.6:8762/eureka/,http://10.200.157.6:8763/eureka/
+
+spring:
   application:
     name: compute-supplier
   sleuth:
