@@ -105,25 +105,38 @@ Filters share state through RequestContext.
 
 Create a sub class of ZuulFilter, implements methods, and register this bean into main application. Decouple API auth and business services, ensure the stateless of micro services.
 
-### 6. Cloud Tracing: Sleuth and Zipkin
-**Sleuth:**    
+## Cloud Tracing: Sleuth
 Distributed tracing solution for Spring Cloud, support slf4j and the like. Trace request from MQ, HTTP, Gateway, RestTemplate, etc.   
+
 Will print span and trace id in log(To console/file, or send to collector in json format).   
 
-**Zipkin:**    
-client, server, and ui. May accept messages from HTTP(REST API) or Stream(RabbitMQ or Kafka). Also it support Spring Boot(@EnableZipkinServer and @EnableZipkinStreamServer).    
+This dependency must add to every project to collect trace log.
+
+## Cloud Tracing: Zipkin
+Including collector, storage, search, and ui.    
+
+May collect messages from HTTP(REST API) or Stream(RabbitMQ or Kafka). Also it support Spring Boot(@EnableZipkinServer and @EnableZipkinStreamServer).    
 Storage of Zipkin support in-memory, MySQL, Elasticsearch, etc.    
+
 Zipkin servers don't share states or config, so they run as cluster. (I guess they just run in parallel. How clients reach to every nodes of cluster?)
 
-### 7. Spring Cloud Stream
+Currently only deployed to one server.
+
+## Middleware: Spring Cloud Stream
 Allow apps to communicate by input and output _channels_.    
+
+**Binder**    
 Provide Binder for Rabbit MQ and Kafka.    
+
+**Destination**    
 Where do channels connect? Properties define _destination_(Kafka topic or RabbitMQ exchange)    
 
 **Consumer group**    
 Inspired by Kafka. All groups which subscribe to a given destination receive a copy of published data, but only one member of each receives a given message.
 
 ## Note
-1. Do NOT use default package, recommended com.example.module. Locate main application class in root package.
-2. The cloud may require other supporting server, like stream, storage.
-3. For simplicity, many modules are run in singleton, in product env may need to run as cluster.
+1. Mind dependency version, must match server version, current ES 6.0.1, Kafka 0.9.x    
+2. The cloud may require other supporting server, like stream, storage, eureka
+3. ES client will be deprecated, suggest using REST client to reach ES server 
+4. Do NOT use default package, recommended com.example.module. Locate main application class in root package.
+5. For simplicity, many modules are run in singleton, in product env may need to run as cluster.
